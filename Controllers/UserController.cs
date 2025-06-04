@@ -20,10 +20,10 @@ namespace dotnet_sample.Controllers
             return Ok("check user controller and its endpoint");
         }
 
-        [HttpGet("s")]
-        public IActionResult s()
+        [HttpGet("ss")]
+        public IActionResult ss()
         {
-            return Ok("S user controller and its endpoint");
+            return Ok("SS user controller and its endpoint");
         }
     }
 }
