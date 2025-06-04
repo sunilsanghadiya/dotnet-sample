@@ -8,7 +8,7 @@ namespace dotnet_sample.Controllers
     {
         public UserController() { }
 
-        [HttpGet("GetUser")]
+        [HttpGet("")]
         public IActionResult GetUser()
         {
             return Ok("Successfully get user");
