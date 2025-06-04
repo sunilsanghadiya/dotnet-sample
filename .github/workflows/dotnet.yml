@@ -2,7 +2,7 @@ name: Deploy .NET Core API to EC2
 
 on:
   push:
-    branches: [master]  # or your deploy branch
+    branches: [master]
 
 jobs:
   deploy:
@@ -17,10 +17,13 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
+    - name: Restore dependencies
+      run: dotnet restore
+
     - name: Publish app
       run: dotnet publish -c Release -o publish
 
-    - name: Deploy via SSH
+    - name: Deploy via SCP
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -28,6 +31,8 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         source: "publish"
         target: "/home/ubuntu/myapp"
+        strip_components: 0
+        debug: true
 
     - name: Restart app on EC2
       uses: appleboy/ssh-action@v1.0.3
