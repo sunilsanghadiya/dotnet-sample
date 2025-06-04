@@ -26,7 +26,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        source: "publish/*"
+        source: "publish"
         target: "/home/ec2-user/myapp"
 
     - name: Restart app on EC2
@@ -36,4 +36,5 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
+          sudo systemctl status myapp.service || echo "Service not found"
           sudo systemctl restart myapp.service
