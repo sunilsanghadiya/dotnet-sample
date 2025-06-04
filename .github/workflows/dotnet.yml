@@ -2,7 +2,7 @@ name: Deploy .NET Core API to EC2
 
 on:
   push:
-    branches: [main]  # or your deploy branch
+    branches: [master]  # or your deploy branch
 
 jobs:
   deploy:
