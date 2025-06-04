@@ -13,5 +13,11 @@ namespace dotnet_sample.Controllers
         {
             return Ok("Successfully get user");
         }
+
+        [HttpGet("check")]
+        public IActionResult check()
+        {
+            return Ok("check user controller and its endpoint");
+        }
     }
 }
