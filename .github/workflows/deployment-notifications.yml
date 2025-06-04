@@ -16,9 +16,9 @@ jobs:
         id: deploy
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.EC2_PUBLIC_HOST }}
+          host: ${{ secrets.EC2_HOST }}
           username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key: ${{ secrets.EC2_KEY }}
           source: "publish"
           target: "/home/ubuntu/app"
 
