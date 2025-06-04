@@ -19,5 +19,11 @@ namespace dotnet_sample.Controllers
         {
             return Ok("check user controller and its endpoint");
         }
+
+        [HttpGet("s")]
+        public IActionResult s()
+        {
+            return Ok("S user controller and its endpoint");
+        }
     }
 }
